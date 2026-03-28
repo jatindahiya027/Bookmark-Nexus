@@ -1,0 +1,148 @@
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { height: 100%; overflow: hidden; }
+
+/* ── Design tokens ─────────────────────────────────── */
+:root {
+  /* Base palette — deep slate industrial */
+  --c-bg:        #0d0e14;
+  --c-surface:   #13141c;
+  --c-surface2:  #1a1c27;
+  --c-surface3:  #21232f;
+  --c-surface4:  #292b3a;
+  --c-border:    rgba(255,255,255,0.06);
+  --c-border2:   rgba(255,255,255,0.1);
+  --c-border3:   rgba(255,255,255,0.16);
+
+  /* Text */
+  --c-text:      #e2e4f0;
+  --c-text2:     #8b8fa8;
+  --c-text3:     #4a4d62;
+  --c-text4:     #2e3045;
+
+  /* Accent — warm amber primary, cool teal secondary */
+  --c-accent:    #f5a623;
+  --c-accent-bg: rgba(245,166,35,0.1);
+  --c-accent-bd: rgba(245,166,35,0.25);
+  --c-teal:      #3dd9c0;
+  --c-teal-bg:   rgba(61,217,192,0.08);
+  --c-red:       #ff5f5f;
+  --c-red-bg:    rgba(255,95,95,0.1);
+  --c-green:     #4ecf7e;
+  --c-purple:    #9d7ef5;
+
+  /* Browsers */
+  --c-chrome:    #4285f4;
+  --c-firefox:   #ff7139;
+  --c-safari:    #0fb5ee;
+  --c-edge:      #0078d4;
+  --c-brave:     #fb542b;
+  --c-opera:     #ff1b2d;
+  --c-vivaldi:   #ef3939;
+  --c-zen:       #9b59b6;
+  --c-arc:       #fe5f55;
+  --c-other:     #8b8fa8;
+
+  /* Dimensions */
+  --sidebar-w:   220px;
+  --toolbar-h:   52px;
+  --titlebar-h:  44px;
+  --statusbar-h: 26px;
+  --row-h:       52px;
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-ui:      'Outfit', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Fira Code', monospace;
+
+  /* Radius */
+  --r-sm: 5px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-xl: 16px;
+}
+
+/* ── Base ──────────────────────────────────────────── */
+body {
+  font-family: var(--font-ui);
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+/* ── Scrollbars ────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--c-border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-border3); }
+
+/* ── Inputs ────────────────────────────────────────── */
+input, textarea, select {
+  font-family: var(--font-ui);
+  color: var(--c-text);
+  background: var(--c-surface2);
+  border: 1px solid var(--c-border2);
+  border-radius: var(--r-md);
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--c-accent);
+  background: var(--c-surface3);
+}
+input::placeholder { color: var(--c-text3); }
+
+/* ── Buttons ───────────────────────────────────────── */
+button {
+  font-family: var(--font-ui);
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ── Utility ───────────────────────────────────────── */
+.truncate { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.mono { font-family: var(--font-mono); }
+.dimmed { color: var(--c-text3); }
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.gap-2 { gap: 8px; }
+.gap-1 { gap: 4px; }
+.mla { margin-left: auto; }
+
+/* ── Highlight ─────────────────────────────────────── */
+mark {
+  background: rgba(245,166,35,0.25);
+  color: var(--c-accent);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* ── Animations ────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.fade-in { animation: fadeIn 0.2s ease both; }
+.scale-in { animation: scaleIn 0.15s ease both; }

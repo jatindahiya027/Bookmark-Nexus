@@ -1,0 +1,200 @@
+.wrap {
+  flex-shrink: 0;
+  background: var(--c-surface);
+  border-bottom: 1px solid var(--c-border);
+}
+
+.toolbar {
+  height: var(--toolbar-h);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 10px;
+}
+
+/* ── Search ── */
+.searchWrap {
+  flex: 1;
+  position: relative;
+  max-width: 420px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-text3);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.search {
+  width: 100%;
+  background: var(--c-surface2);
+  border: 1px solid var(--c-border2);
+  border-radius: var(--r-md);
+  padding: 7px 30px 7px 34px;
+  color: var(--c-text);
+  font-size: 13px;
+}
+.search:focus {
+  border-color: var(--c-accent);
+  background: var(--c-surface3);
+}
+
+.clearSearch {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--c-text3);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 11px;
+  border-radius: 3px;
+  transition: color 0.1s;
+}
+.clearSearch:hover { color: var(--c-text); }
+
+/* ── Sort ── */
+.sortGroup {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: var(--c-surface2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: 2px;
+}
+
+.sortBtn {
+  padding: 4px 9px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--c-text3);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.12s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-ui);
+}
+.sortBtn:hover { color: var(--c-text2); background: var(--c-surface3); }
+.sortActive {
+  background: var(--c-surface3) !important;
+  color: var(--c-text) !important;
+}
+
+.sortDir {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--c-accent);
+}
+
+/* ── View toggle ── */
+.viewToggle {
+  display: flex;
+  background: var(--c-surface2);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.viewBtn {
+  padding: 6px 10px;
+  font-size: 14px;
+  color: var(--c-text3);
+  cursor: pointer;
+  transition: all 0.12s;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+.viewBtn:hover { color: var(--c-text2); background: var(--c-surface3); }
+.viewActive { color: var(--c-accent) !important; background: var(--c-surface3); }
+
+/* ── Buttons ── */
+.btn {
+  padding: 7px 14px;
+  border-radius: var(--r-md);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  font-family: var(--font-ui);
+}
+
+.btnPrimary {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: #0d0e14;
+}
+.btnPrimary:hover { background: #f7b53a; }
+
+/* ── Selection bar ── */
+.selBar {
+  height: 38px;
+  background: rgba(245,166,35,0.06);
+  border-top: 1px solid var(--c-accent-bd);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 8px;
+  animation: slideDown 0.15s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; height: 0; }
+  to { opacity: 1; height: 38px; }
+}
+
+.selInfo {
+  font-size: 12px;
+  margin-right: 4px;
+}
+.selCount {
+  font-family: var(--font-mono);
+  color: var(--c-accent);
+  font-weight: 600;
+}
+.selOf { color: var(--c-text3); }
+
+.selBtn {
+  padding: 4px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--c-border2);
+  background: var(--c-surface2);
+  color: var(--c-text2);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.12s;
+  font-family: var(--font-ui);
+}
+.selBtn:hover { background: var(--c-surface3); color: var(--c-text); border-color: var(--c-border3); }
+
+.selDanger {
+  background: var(--c-red-bg);
+  border-color: rgba(255,95,95,0.3);
+  color: var(--c-red);
+}
+.selDanger:hover { background: rgba(255,95,95,0.18) !important; }
+
+.selRestore {
+  background: rgba(52,199,89,0.08);
+  border-color: rgba(52,199,89,0.3);
+  color: #34c759;
+}
+.selRestore:hover { background: rgba(52,199,89,0.18) !important; }
